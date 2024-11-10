@@ -185,3 +185,9 @@ combos:
 - p: [7, 6]
   k: '}'
   l: [QWERTY]
+- p: [30, 31]
+  k: {t: ']', s: '}'}
+  l: [QWERTY]
+- p: [31, 32]
+  k: {t: '[', s: '{'}
+  l: [QWERTY]
