@@ -54,6 +54,18 @@
             key-positions = <7 6>;
             layers = <0>;
         };
+
+        RBKT_COMBO {
+            bindings = <&kp RBKT>;
+            key-positions = <30 31>;
+            layers = <0>;
+        };
+
+        LBKT_COMBO {
+            bindings = <&kp LBKT>;
+            key-positions = <31 32>;
+            layers = <0>;
+        };
     };
 
     keymap {
