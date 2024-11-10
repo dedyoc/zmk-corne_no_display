@@ -33,12 +33,26 @@
 
         LPAR_COMBO {
             bindings = <&kp LPAR>;
-            key-positions = <18 19>;
+            key-positions = <19 20>;
+            layers = <0>;
         };
 
         RPAR_COMBO {
             bindings = <&kp RPAR>;
-            key-positions = <20 21>;
+            key-positions = <19 18>;
+            layers = <0>;
+        };
+
+        LBRC_COMBO {
+            bindings = <&kp LBRC>;
+            key-positions = <7 8>;
+            layers = <0>;
+        };
+
+        RBRC_COMBO {
+            bindings = <&kp RBRC>;
+            key-positions = <7 6>;
+            layers = <0>;
         };
     };
 
