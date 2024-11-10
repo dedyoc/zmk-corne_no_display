@@ -172,3 +172,8 @@ layers:
   - {type: held alternate}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
+combos:
+- p: [18, 19]
+  k: (
+- p: [20, 21]
+  k: )
