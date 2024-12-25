@@ -8,6 +8,8 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
 
 / {
@@ -68,6 +70,15 @@
         };
     };
 
+    macros {
+        redo: redo {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LCTRL &kp Y>;
+            label = "REDO";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -84,11 +95,11 @@
 &kp TAB    &kp Q  &kp W  &kp E     &kp R  &kp T          &kp Y        &kp U  &kp I      &kp O    &kp P     &kp BSPC
 &kp LCTRL  &kp A  &kp S  &kp D     &kp F  &kp G          &kp H        &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
 &td0       &kp Z  &kp X  &kp C     &kp V  &kp B          &kp N        &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
-                         &kp LGUI  &mo 1  &lt 3 SPACE    &lt 3 ENTER  &mo 2  &kp RALT
+                         &kp LGUI  &mo 1  &lt 5 SPACE    &lt 5 ENTER  &mo 4  &kp RALT
             >;
         };
 
-        lower_layer {
+        nav_layer {
             display-name = "NUMBER";
 
             // -----------------------------------------------------------------------------------------
@@ -98,14 +109,34 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&trans  &kp N1           &kp N2          &kp N3        &kp N4        &kp N5             &kp N6           &kp N7           &kp N8           &kp N9           &kp N0    &kp BSPC
-&trans  &bt BT_CLR_ALL   &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3       &kp LEFT         &kp DOWN         &kp UP           &kp RIGHT        &kp HOME  &kp PG_UP
-&trans  &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &trans        &trans        &rgb_ug RGB_EFF    &rgb_ug RGB_EFR  &rgb_ug RGB_SPI  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &kp END   &kp PG_DN
-                                         &trans        &trans        &trans             &kp INS          &kp DEL          &trans
+&trans  &kp N1           &kp N2          &kp N3     &kp N4     &kp N5             &kp N6     &kp N7         &kp N8         &kp N9       &kp N0    &trans
+&trans  &kp LMETA        &kp LALT        &kp LCTRL  &kp LSHFT  &trans             &kp LEFT   &kp DOWN       &kp UP         &kp RIGHT    &kp CAPS  &trans
+&trans  &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &trans     &trans     &rgb_ug RGB_EFF    &kp INS    &kp HOME       &kp PAGE_DOWN  &kp PAGE_UP  &kp END   &trans
+                                         &trans     &trans     &trans             &kp ENTER  &kp BACKSPACE  &kp DEL
             >;
         };
 
-        raise_layer {
+        mouse_layer {
+            display-name = "NUMBER";
+            bindings = <
+&trans  &trans     &trans    &trans     &trans     &trans    &redo           &kp N7          &kp N8        &kp N9       &kp N0  &trans
+&trans  &kp LMETA  &kp LALT  &kp LCTRL  &kp LSHFT  &trans    &kp LEFT        &kp DOWN        &kp UP        &kp RIGHT    &none   &trans
+&trans  &trans     &trans    &trans     &trans     &trans    &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &kp PAGE_UP  &none   &trans
+                             &trans     &trans     &trans    &mkp MB2        &mkp MB1        &mkp MB3
+            >;
+        };
+
+        button_layer {
+            display-name = "NUMBER";
+            bindings = <
+&trans  &trans     &trans    &trans     &trans     &trans    &redo           &kp N7          &kp N8        &kp N9       &kp N0  &trans
+&trans  &kp LMETA  &kp LALT  &kp LCTRL  &kp LSHFT  &trans    &kp LEFT        &kp DOWN        &kp UP        &kp RIGHT    &none   &trans
+&trans  &trans     &trans    &trans     &trans     &trans    &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &kp PAGE_UP  &none   &trans
+                             &trans     &trans     &trans    &mkp MB2        &mkp MB1        &mkp MB3
+            >;
+        };
+
+        mous_layer {
             display-name = "SYMBOL";
 
             // -----------------------------------------------------------------------------------------
@@ -129,6 +160,16 @@
 &trans  &bt BT_CLR  &trans  &trans  &sys_reset  &bootloader    &bootloader  &trans  &trans  &trans  &kp PRINTSCREEN  &kp F12
 &trans  &trans      &trans  &trans  &trans      &trans         &trans       &trans  &trans  &trans  &kp SCROLLLOCK   &kp PAUSE_BREAK
                             &trans  &trans      &trans         &trans       &trans  &trans
+            >;
+        };
+
+        layer_6 {
+            display-name = "NUMBER";
+            bindings = <
+&trans  &trans     &trans    &trans     &trans     &trans    &redo           &kp N7          &kp N8        &kp N9       &kp N0  &trans
+&trans  &kp LMETA  &kp LALT  &kp LCTRL  &kp LSHFT  &trans    &kp LEFT        &kp DOWN        &kp UP        &kp RIGHT    &none   &trans
+&trans  &trans     &trans    &trans     &trans     &trans    &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &kp PAGE_UP  &none   &trans
+                             &trans     &trans     &trans    &mkp MB2        &mkp MB1        &mkp MB3
             >;
         };
     };
