@@ -3,6 +3,7 @@
  *
  * SPDX-License-Identifier: MIT
  */
+
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 600  // default: 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 10    // default: 10
 
@@ -10,6 +11,8 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
 
@@ -28,6 +31,28 @@
             label = "TD0";
             #binding-cells = <0>;
             bindings = <&kp LEFT_SHIFT>, <&kp CAPS>;
+        };
+
+        hml: hml {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HML";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "balanced";
+            hold-trigger-key-positions = <6 7 8 9 10 11 23 22 21 20 19 18 30 31 33 34 35 32>;
+        };
+
+        hmr: hmr {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HMR";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "balanced";
+            hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29>;
         };
     };
 
@@ -84,10 +109,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp TAB    &kp Q  &kp W  &kp E     &kp R  &kp T          &kp Y        &kp U  &kp I      &kp O    &kp P     &kp BSPC
-&kp LCTRL  &kp A  &kp S  &kp D     &kp F  &kp G          &kp H        &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
-&td0       &kp Z  &kp X  &kp C     &kp V  &kp B          &kp N        &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
-                         &kp LGUI  &mo 1  &lt 4 SPACE    &lt 3 ENTER  &mo 2  &kp RALT
+&kp TAB    &kp Q        &kp W        &kp E         &kp R         &kp T          &kp Y        &kp U         &kp I         &kp O        &kp P           &kp BSPC
+&kp LCTRL  &hml LGUI A  &hml LALT S  &hml LSHFT D  &hml LCTRL F  &kp G          &kp H        &hmr RCTRL J  &hmr RSHFT K  &hmr RALT L  &hmr RGUI SEMI  &kp SQT
+&td0       &kp Z        &kp X        &kp C         &kp V         &kp B          &kp N        &kp M         &kp COMMA     &kp DOT      &kp FSLH        &kp ESC
+                                     &kp LGUI      &mo 1         &lt 3 SPACE    &lt 3 ENTER  &mo 2         &kp RALT
             >;
         };
 
