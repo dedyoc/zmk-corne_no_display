@@ -143,10 +143,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&trans  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp BSPC
-&trans  &none     &none   &none     &none     &none        &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT  &kp BSLH  &kp GRAVE
-&trans  &none     &none   &none     &none     &none        &kp UNDER  &kp PLUS   &kp LBRC   &kp RBRC  &kp PIPE  &kp TILDE
-                          &trans    &trans    &kp SPACE    &kp RET    &trans     &trans
+&trans  &kp GRAVE    &kp TILDE  &kp HASH   &kp AMPS   &kp PIPE         &kp CARET  &kp LBRC              &kp RBRC               &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp BSPC
+&trans  &kp EXCL     &kp UNDER  &kp COLON  &kp EQUAL  &kp DOLLAR       &kp AT     &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp UNDER         &kp SEMI           &trans
+&trans  &kp PERCENT  &kp QMARK  &kp ASTRK  &kp PLUS   &kp BACKSLASH    &kp SLASH  &kp MINUS             &kp LT                 &kp GT            &kp DOUBLE_QUOTES  &trans
+                                &trans     &trans     &kp SPACE        &kp RET    &trans                &trans
             >;
         };
 
