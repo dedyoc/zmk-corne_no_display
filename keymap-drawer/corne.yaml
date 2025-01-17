@@ -70,11 +70,11 @@ layers:
   - PG UP
   - {t: '$$mdi:transfer$$', type: trans}
   - RGB TOG
-  - RGB COLOR HSB(55,100,50)
+  - RGB COLOR HSB(179,100,50)
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - RGB EFF
-  - RGB EFR
+  - RGB SPD
   - RGB SPI
   - RGB BRI
   - RGB BRD
