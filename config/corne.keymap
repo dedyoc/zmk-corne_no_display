@@ -58,6 +58,29 @@
 
     combos { compatible = "zmk,combos"; };
 
+    macros {
+        copy: copy {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LCTRL &kp INS>;
+            label = "COPY";
+        };
+
+        paste: paste {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LSHIFT &kp INS>;
+            label = "PASTE";
+        };
+
+        cut: cut {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LSHFT &kp DEL>;
+            label = "CUT";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -71,9 +94,9 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&trans  &kp Q        &kp W        &kp E         &kp R         &kp T          &kp Y        &kp U         &kp I         &kp O        &kp P                   &trans
-&trans  &hml LGUI A  &hml LALT S  &hml LSHFT D  &hml LCTRL F  &kp G          &kp H        &hmr RCTRL J  &hmr RSHFT K  &hmr RALT L  &hmr RGUI SINGLE_QUOTE  &trans
-&td0    &kp Z        &kp X        &kp C         &kp V         &kp B          &kp N        &kp M         &kp COMMA     &kp DOT      &kp FSLH                &trans
+&paste  &kp Q        &kp W        &kp E         &kp R         &kp T          &kp Y        &kp U         &kp I         &kp O        &kp P                   &soft_off
+&copy   &hml LGUI A  &hml LALT S  &hml LSHFT D  &hml LCTRL F  &kp G          &kp H        &hmr RCTRL J  &hmr RSHFT K  &hmr RALT L  &hmr RGUI SINGLE_QUOTE  &trans
+&cut    &kp Z        &kp X        &kp C         &kp V         &kp B          &kp N        &kp M         &kp COMMA     &kp DOT      &kp FSLH                &td0
                                   &kp ESC       &lt 1 TAB     &lt 4 SPACE    &lt 3 ENTER  &lt 2 BSPC    &kp DEL
             >;
         };
