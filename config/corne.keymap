@@ -127,7 +127,7 @@
 &paste  &kp Q        &kp W        &kp E         &kp R         &kp T          &kp Y        &kp U         &kp I         &kp O        &kp P                   &trans
 &copy   &hml LGUI A  &hml LALT S  &hml LSHFT D  &hml LCTRL F  &kp G          &kp H        &hmr RCTRL J  &hmr RSHFT K  &hmr RALT L  &hmr RGUI SINGLE_QUOTE  &trans
 &cut    &kp Z        &kp X        &kp C         &kp V         &kp B          &kp N        &kp M         &kp COMMA     &kp DOT      &kp FSLH                &td0
-                                  &kp ESC       &lt 1 TAB     &lt 4 SPACE    &lt 3 ENTER  &lt 2 BSPC    &kp DEL
+                                  &kp ESC       &lt 1 TAB     &lt 5 SPACE    &lt 2 ENTER  &lt 4 BSPC    &kp DEL
             >;
         };
 
@@ -141,10 +141,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&trans  &kp N1           &kp N2                             &kp N3        &kp N4        &kp N5             &kp N6           &kp N7           &kp N8           &kp N9           &kp N0    &kp BSPC
-&trans  &bt BT_CLR_ALL   &bt BT_SEL 0                       &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3       &kp LEFT         &kp DOWN         &kp UP           &kp RIGHT        &kp HOME  &kp PG_UP
-&trans  &rgb_ug RGB_TOG  &rgb_ug RGB_COLOR_HSB(179,100,50)  &trans        &trans        &rgb_ug RGB_EFF    &rgb_ug RGB_SPD  &rgb_ug RGB_SPI  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &kp END   &kp PG_DN
-                                                            &trans        &trans        &trans             &trans           &trans           &trans
+&trans  &kp N1           &kp N2        &kp N3        &kp N4        &kp N5             &kp N6           &kp N7           &kp N8           &kp N9           &kp N0    &kp BSPC
+&trans  &bt BT_CLR_ALL   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3       &kp LEFT         &kp DOWN         &kp UP           &kp RIGHT        &kp HOME  &kp PG_UP
+&trans  &rgb_ug RGB_TOG  &trans        &trans        &trans        &rgb_ug RGB_EFF    &rgb_ug RGB_SPD  &rgb_ug RGB_SPI  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &kp END   &kp PG_DN
+                                       &trans        &trans        &trans             &trans           &trans           &trans
             >;
         };
 
@@ -158,14 +158,14 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&trans  &kp GRAVE    &kp TILDE  &kp HASH   &kp AMPS   &kp PIPE             &kp CARET  &kp LBRC              &kp RBRC               &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &trans
-&trans  &kp EXCL     &kp UNDER  &kp COLON  &kp EQUAL  &kp DOUBLE_QUOTES    &kp AT     &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp UNDER         &kp SEMI           &trans
+&trans  &kp GRAVE    &kp TILDE  &kp HASH   &kp AMPS   &kp PIPE             &kp CARET  &kp LBRC              &kp RBRC               &kp SEMI          &trans             &trans
+&trans  &kp EXCL     &kp UNDER  &kp COLON  &kp EQUAL  &kp DOUBLE_QUOTES    &kp AT     &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &trans
 &trans  &kp PERCENT  &kp QMARK  &kp ASTRK  &kp PLUS   &kp BACKSLASH        &kp SLASH  &kp MINUS             &kp LT                 &kp GT            &kp DOLLAR         &trans
-                                &trans     &trans     &kp SPACE            &kp RET    &trans                &trans
+                                &trans     &trans     &trans               &trans     &trans                &trans
             >;
         };
 
-        layer_3 {
+        fn_layer {
             display-name = "Fn";
             bindings = <
 &trans  &kp F1      &kp F2        &kp F3  &kp F4      &kp F5    &kp F6       &kp F7  &kp F8  &kp F9  &kp F10          &kp F11
