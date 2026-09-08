@@ -77,8 +77,8 @@ Terminal-friendly clipboard bindings on the left edge column of layer 0:
 
 | Name    | Position | Sends            |
 |---------|----------|------------------|
-| `copy`  | 12       | `Ctrl+Insert`    |
 | `paste` | 0        | `Shift+Insert`   |
+| `copy`  | 12       | `Ctrl+Insert`    |
 | `cut`   | 24       | `Shift+Delete`   |
 
 The `combos` node exists but is **empty** (bracket combos were removed in
@@ -86,7 +86,11 @@ commit `6b33dbb`).
 
 ## Notable bindings
 
-- `&soft_off` at position 11 (top-right) — requires `CONFIG_ZMK_SLEEP=y`.
+- Position 11 (top-right) is `&trans` — free. It held `&soft_off` until
+  2026-09-09, but that behavior needs `CONFIG_ZMK_PM_SOFT_OFF=y` (which was
+  never set, so it silently did nothing) and the corner is easy to mis-hit
+  next to Backspace. `CONFIG_ZMK_SLEEP` is a *different* feature: automatic
+  deep sleep on idle, which is enabled and working.
 - `&bootloader` on layer 3 pos 30 and layer 4 pos 29.
 - `&sys_reset` on layer 3 pos 16.
 - Bluetooth profile select on layer 1 row 2; `&bt BT_CLR_ALL` at pos 13.
