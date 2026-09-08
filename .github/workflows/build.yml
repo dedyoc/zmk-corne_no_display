@@ -9,7 +9,12 @@ on:
 
 jobs:
   build:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    # Must match the ZMK revision pinned in config/west.yml. The @main harness
+    # runs a "Missing ZMK Compat" check using `west boards --format {qualifiers}`,
+    # which only exists in Zephyr >=4.1 (hardware-model-v2); against v0.3.0's
+    # Zephyr 3.5.0 it dies with KeyError: 'qualifiers' and fails the job even
+    # though the firmware itself builds fine.
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3.0
   draw:
     uses: caksoylar/keymap-drawer/.github/workflows/draw-zmk.yml@main
     permissions:
