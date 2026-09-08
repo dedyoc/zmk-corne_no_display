@@ -13,9 +13,10 @@ REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 WS="${ZMK_WORKSPACE:-$HOME/zmk-workspace}"
 IMAGE="zmkfirmware/zmk-build-arm:stable"
 
-# The board name is variant-qualified (Zephyr hardware-model-v2). Plain
-# "nice_nano_v2" no longer resolves on current ZMK main.
-BOARD="nice_nano/nrf52840/zmk"
+# west.yml pins ZMK to v0.3.0, which predates Zephyr hardware-model-v2, so the
+# board is the plain name. Must stay in sync with build.yaml. (On ZMK main this
+# would have to be "nice_nano/nrf52840/zmk" instead.)
+BOARD="nice_nano_v2"
 
 docker_run() {
   docker run --rm \
