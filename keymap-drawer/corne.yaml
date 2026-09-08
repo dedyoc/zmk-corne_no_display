@@ -12,7 +12,7 @@ layers:
   - I
   - O
   - P
-  - '&soft_off'
+  - {t: '$$mdi:transfer$$', type: trans}
   - '&copy'
   - {t: A, h: LGUI}
   - {t: S, h: '$$mdi:apple-keyboard-option$$'}
