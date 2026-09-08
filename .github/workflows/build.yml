@@ -4,6 +4,8 @@ on:
   push:
     paths:
       - "config/**"
+      - "build.yaml"
+      - ".github/workflows/**"
 
 jobs:
   build:
