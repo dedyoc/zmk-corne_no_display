@@ -131,11 +131,16 @@
         default_layer {
             display-name = "QWERTY";
 
-            // --------------------------------------------------------------------------------
-            // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-            // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   | 
-            // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-            //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
+            // ---------------------------------------------------------------------------------------------
+            // | PASTE |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U  |  I  |  O  |  P  |     |
+            // | COPY  |  A  |  S  |  D  |  F  |  G  |   |  H  |  J  |  K  |  L  |  '  |     |
+            // | CUT   |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M  |  ,  |  .  |  /  | TD0 |
+            //                    | ESC | TAB | SPC |   | ENT | BSPC | DEL |
+            //
+            // Left column is paste/copy/cut (Shift+Ins / Ctrl+Ins / Shift+Del) -- terminal-safe.
+            // Home row is mods: A=GUI S=ALT D=SHFT F=CTRL / J=CTRL K=SHFT L=ALT '=GUI.
+            // Thumbs are layer-taps: TAB=L1 SPC=L4 ENT=L2 BSPC=L3. TD0 = caps-word / CAPS.
+            // Positions 11 and 23 are unassigned.
 
             bindings = <
 &paste  &kp Q        &kp W        &kp E         &kp R         &kp T          &kp Y        &kp U         &kp I         &kp O        &kp P                   &trans
@@ -148,11 +153,13 @@
         lower_layer {
             display-name = "NUMBER";
 
-            // -----------------------------------------------------------------------------------------
-            // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-            // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-            // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-            //                    | GUI |     | SPC |   | ENT |     | ALT |
+            // -----------------------------------------------------------------------------------------------------
+            // |     |   1    |   2   |   3   |   4   |   5   |   |   6  |   7  |  8  |  9  |  0   | BSPC |
+            // |     | BT_CLR | BT 0  | BT 1  | BT 2  | BT 3  |   | LEFT | DOWN |  UP | RGT | HOME | PGUP |
+            // |     | RGB_TOG|       |       |       |RGB_EFF|   | SPD  | SPI  | BRI | BRD | END  | PGDN |
+            //                       |     |     |     |   |     |     |     |
+            //
+            // BT_CLR here is BT_CLR_ALL (wipes every profile), not BT_CLR.
 
             bindings = <
 &trans  &kp N1           &kp N2        &kp N3        &kp N4        &kp N5             &kp N6           &kp N7           &kp N8           &kp N9           &kp N0    &kp BSPC
@@ -165,11 +172,11 @@
         raise_layer {
             display-name = "SYMBOL";
 
-            // -----------------------------------------------------------------------------------------
-            // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-            // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-            // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-            //                    | GUI |     | SPC |   | ENT |     | ALT |
+            // -----------------------------------------------------------------------------------
+            // |     |  `  |  ~  |  #  |  &  | "|" |   |  ^  |  {  |  }  |  ;  |     |     |
+            // |     |  !  |  _  |  :  |  =  |  "  |   |  @  |  (  |  )  |  [  |  ]  |     |
+            // |     |  %  |  ?  |  *  |  +  |  \  |   |  /  |  -  |  <  |  >  |  $  |     |
+            //                   |     |     |     |   |     |     |     |
 
             bindings = <
 &trans  &kp GRAVE    &kp TILDE  &kp HASH   &kp AMPS   &kp PIPE             &kp CARET  &kp LBRC              &kp RBRC               &kp SEMI          &trans             &trans

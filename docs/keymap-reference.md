@@ -35,10 +35,7 @@ Layer numbers are what `&lt` / `&mo` reference. Order in the file *is* the index
 | 1 | `lower_layer`    | NUMBER       | `&lt 1 TAB` (left thumb, pos 37)  |
 | 2 | `raise_layer`    | SYMBOL       | `&lt 2 ENTER` (right thumb, pos 39) |
 | 3 | `fn_layer`       | Fn           | `&lt 3 BSPC` (right thumb, pos 40)  |
-| 4 | `mouse_layer`    | *(none)*     | `&lt 4 SPACE` (left thumb, pos 38)  |
-
-Note: layer 4 (`mouse_layer`) has no `display-name`, so keymap-drawer falls back
-to the node name.
+| 4 | `mouse_layer`    | MOUSE        | `&lt 4 SPACE` (left thumb, pos 38)  |
 
 ## Thumb cluster (layer 0)
 
@@ -53,22 +50,51 @@ to the node name.
 
 ## Home-row mods
 
-Balanced hold-taps with a 200ms tapping term, guarded by
+"Timerless" hold-taps in urob's style (since 2026-09-09), guarded by
 `hold-trigger-key-positions` so only opposite-hand keys can trigger the hold.
 
 - `hml` (left, positions 13-16): `LGUI A`, `LALT S`, `LSHFT D`, `LCTRL F`
 - `hmr` (right, positions 19-22): `RCTRL J`, `RSHFT K`, `RALT L`, `RGUI '`
 
-`hml`'s trigger list currently contains duplicates (`30 31 32 33` appear twice)
-and includes positions on both halves — harmless, but worth tidying.
+Both carry the same properties:
+
+| Property | Value | Why |
+|---|---|---|
+| `flavor` | `balanced` | |
+| `tapping-term-ms` | 280 | Long on purpose — only applies after a pause. |
+| `require-prior-idle-ms` | 150 | The load-bearing one: a key pressed within 150ms of another resolves instantly as a tap, so fast typing never sees a modifier or a delay. |
+| `quick-tap-ms` | 175 | Repeat-tap the same key without a hold. |
+| `hold-trigger-on-release` | set | Defers the positional check to release, which is what allows same-hand mod combos. |
+
+Tuning levers: same-hand false mods -> raise `tapping-term-ms`; cross-hand false
+mods -> raise `require-prior-idle-ms`; missed mods when typing fast -> lower
+`require-prior-idle-ms`.
+
+Each list covers the *opposite* half only, thumbs included — so a home-row mod
+cannot be triggered by a key on its own hand, including that hand's thumb keys.
+`Ctrl+Backspace` works because Backspace is a right thumb and `LCTRL` is left
+`F`; the same-hand equivalent does not.
+
+## Symbol layer (layer 2)
+
+Not a stock arrangement — worth having written down:
+
+```
+  `   ~   #   &   |   │   ^   {   }   ;   -   -
+  !   _   :   =   "   │   @   (   )   [   ]   -
+  %   ?   *   +   \   │   /   -   <   >   $   -
+```
+
+Dashes are `&trans` (no effect on this layer). Note `-` and `_` sit on opposite
+halves, as do `=` and `+`.
 
 ## Behaviors
 
 | Name  | Type          | Notes                                                |
 |-------|---------------|------------------------------------------------------|
 | `td0` | tap-dance     | tap = `&caps_word`, double-tap = `&kp CAPS`          |
-| `hml` | hold-tap      | left home-row mods, `balanced`, 200ms                |
-| `hmr` | hold-tap      | right home-row mods, `balanced`, 200ms               |
+| `hml` | hold-tap      | left home-row mods, `balanced`, timerless (see above) |
+| `hmr` | hold-tap      | right home-row mods, `balanced`, timerless           |
 | `osm` | sticky-key    | 1000ms release, `lazy` + `ignore-modifiers` + `quick-release` |
 
 ## Macros
@@ -91,6 +117,8 @@ commit `6b33dbb`).
   never set, so it silently did nothing) and the corner is easy to mis-hit
   next to Backspace. `CONFIG_ZMK_SLEEP` is a *different* feature: automatic
   deep sleep on idle, which is enabled and working.
+- Position 23 (right pinky, home row outer) is also `&trans` and free. On a
+  stock Corne this is `'`, which here moved inward to pos 22 as `&hmr RGUI '`.
 - `&bootloader` on layer 3 pos 30 and layer 4 pos 29.
 - `&sys_reset` on layer 3 pos 16.
 - Bluetooth profile select on layer 1 row 2; `&bt BT_CLR_ALL` at pos 13.
