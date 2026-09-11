@@ -36,6 +36,37 @@ Layer numbers are what `&lt` / `&mo` reference. Order in the file *is* the index
 | 2 | `raise_layer`    | SYMBOL       | `&lt 2 ENTER` (right thumb, pos 39) |
 | 3 | `fn_layer`       | Fn           | `&lt 3 BSPC` (right thumb, pos 40)  |
 | 4 | `mouse_layer`    | MOUSE        | `&lt 4 SPACE` (left thumb, pos 38)  |
+| 5 | `sprint_layer`   | FAST         | `&mo 5` (mouse layer pos 4)         |
+| 6 | `precision_layer`| SLOW         | `&mo 6` (mouse layer pos 3)         |
+
+Layers 5 and 6 are **signal layers**: every position is `&trans` and they carry
+no bindings at all. Their only purpose is to activate the layer-scoped
+`input-processors` overrides on `&mmv_input_listener` / `&msc_input_listener`
+at the top of `corne.keymap`, which rescale pointer output while held. Because
+they are fully transparent, the mouse layer stays completely usable underneath
+— move, scroll, click and the sticky mods all keep working. Adding a real
+binding to either layer would shadow the mouse-layer key at that position.
+
+## Cursor speed
+
+Movement is `&mmv`, whose stock ramp is 600 units/s reached over 300ms with
+`acceleration-exponent = 1` (linear). The two speed keys scale that output
+rather than replacing it, so they multiply whatever the ramp has reached:
+
+| Hold (on mouse layer) | Cursor | Scroll |
+|-----------------------|--------|--------|
+| nothing               | 1x     | 1x     |
+| pos 4 (`R` slot)      | 4x     | 3x     |
+| pos 3 (`E` slot)      | 1/4    | 1/3    |
+
+Both stock scalers (`zip_xy_scaler`, `zip_scroll_scaler`) set
+`track-remainders`, which is what makes the dividing case work: without it the
+small per-tick deltas would floor to zero and the cursor would stutter or stop.
+
+Sprint is declared before precision in the listener node, so holding both at
+once resolves to sprint — first matching override wins.
+
+To retune, change the `<multiplier divisor>` cells on the relevant override.
 
 ## Thumb cluster (layer 0)
 
@@ -119,8 +150,11 @@ commit `6b33dbb`).
   deep sleep on idle, which is enabled and working.
 - Position 23 (right pinky, home row outer) is also `&trans` and free. On a
   stock Corne this is `'`, which here moved inward to pos 22 as `&hmr RGUI '`.
-- `&bootloader` on layer 3 pos 30 and layer 4 pos 29.
+- `&bootloader` on layer 3 pos 30 only. Layer 4's copy at pos 29 was removed in
+  `634dcfe`: layer 4 is held with the space thumb, so space+`B` fired it
+  mid-typing. Layer 3's is cross-hand from its layer key and is kept.
 - `&sys_reset` on layer 3 pos 16.
 - Bluetooth profile select on layer 1 row 2; `&bt BT_CLR_ALL` at pos 13.
 - RGB controls on layer 1 row 3.
 - Mouse move/scroll and `&mkp` buttons on layer 4; needs `CONFIG_ZMK_POINTING=y`.
+- Cursor speed keys on layer 4 pos 3/4 (`&mo 6` / `&mo 5`) — see "Cursor speed".
