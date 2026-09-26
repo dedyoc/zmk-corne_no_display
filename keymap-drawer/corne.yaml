@@ -1,7 +1,7 @@
 layout: {zmk_keyboard: corne, layout_name: default_transform}
 layers:
   QWERTY:
-  - '&paste'
+  - $$mdi:content-paste$$
   - Q
   - W
   - E
@@ -13,8 +13,8 @@ layers:
   - O
   - P
   - {t: '$$mdi:transfer$$', type: trans}
-  - '&copy'
-  - {t: A, h: LGUI}
+  - $$mdi:content-copy$$
+  - {t: A, h: '$$mdi:apple-keyboard-command$$'}
   - {t: S, h: '$$mdi:apple-keyboard-option$$'}
   - {t: D, h: '$$mdi:apple-keyboard-shift$$'}
   - {t: F, h: '$$mdi:apple-keyboard-control$$'}
@@ -23,9 +23,9 @@ layers:
   - {t: J, h: '$$mdi:apple-keyboard-control$$'}
   - {t: K, h: '$$mdi:apple-keyboard-shift$$'}
   - {t: L, h: '$$mdi:apple-keyboard-option$$'}
-  - {t: '''', h: RGUI, s: '"'}
+  - {t: '''', h: '$$mdi:apple-keyboard-command$$', s: '"'}
   - {t: '$$mdi:transfer$$', type: trans}
-  - '&cut'
+  - $$mdi:content-cut$$
   - Z
   - X
   - C
@@ -36,7 +36,7 @@ layers:
   - {t: ',', s: <}
   - {t: ., s: '>'}
   - {t: /, s: '?'}
-  - '&td0'
+  - {t: '$$mdi:alpha-w-box$$', h: '$$mdi:apple-keyboard-caps$$'}
   - $$mdi:keyboard-esc$$
   - {t: '$$mdi:keyboard-tab$$', h: NUMBER}
   - {t: '$$mdi:keyboard-space$$', h: MOUSE}
@@ -186,7 +186,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: LGUI, h: '$$mdi:gesture-tap-hold$$'}
+  - {t: '$$mdi:apple-keyboard-command$$', h: '$$mdi:gesture-tap-hold$$'}
   - {t: '$$mdi:apple-keyboard-option$$', h: '$$mdi:gesture-tap-hold$$'}
   - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:gesture-tap-hold$$'}
   - {t: '$$mdi:apple-keyboard-control$$', h: '$$mdi:gesture-tap-hold$$'}
@@ -212,9 +212,9 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {type: held}
-  - '&mkp MB1'
-  - '&mkp MB2'
-  - '&mkp MB3'
+  - $$mdi:mouse-left-click-outline$$
+  - $$mdi:mouse-right-click-outline$$
+  - $$mdi:mouse-scroll-wheel$$
   FAST:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
