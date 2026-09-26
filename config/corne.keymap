@@ -221,10 +221,17 @@
 
         fn_layer {
             display-name = "Fn";
+
+            // No bootloader key. One sat at pos 30 (N), the same hand as the
+            // BSPC layer key, so a pause on backspace then N dropped the right
+            // half into flashing mode. Flashing uses the double-tap reset button.
+            // BT_CLR (A) and sys_reset (F) are cross-hand from BSPC, so a stray
+            // hit needs both hands.
+
             bindings = <
 &trans  &kp F1      &kp F2        &kp F3  &kp F4      &kp F5    &kp F6       &kp F7  &kp F8  &kp F9  &kp F10          &kp F11
 &trans  &bt BT_CLR  &out OUT_TOG  &trans  &sys_reset  &trans    &trans       &trans  &trans  &trans  &kp PRINTSCREEN  &kp F12
-&trans  &trans      &trans        &trans  &trans      &trans    &bootloader  &trans  &trans  &trans  &trans           &kp PAUSE_BREAK
+&trans  &trans      &trans        &trans  &trans      &trans    &trans       &trans  &trans  &trans  &trans           &kp PAUSE_BREAK
                                   &trans  &trans      &trans    &trans       &trans  &trans
             >;
         };

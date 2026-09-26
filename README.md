@@ -57,7 +57,7 @@ The left half acts as the split central.
 | 0 | QWERTY | Default                     | Alphas, home-row mods, clipboard column            |
 | 1 | NUMBER | Hold `Tab` (left thumb)     | Digits, arrows, navigation, Bluetooth, RGB         |
 | 2 | SYMBOL | Hold `Enter` (right thumb)  | Programming symbols and brackets                   |
-| 3 | Fn     | Hold `Backspace` (right thumb) | F1–F12, output toggle, reset, bootloader       |
+| 3 | Fn     | Hold `Backspace` (right thumb) | F1–F12, output toggle, BT clear, reset         |
 | 4 | MOUSE  | Hold `Space` (left thumb)   | Cursor, scroll, mouse buttons, sticky mods         |
 | 5 | FAST   | Hold `R` on MOUSE           | Signal layer: scales cursor 4x, scroll 3x          |
 | 6 | SLOW   | Hold `E` on MOUSE           | Signal layer: scales cursor 1/4, scroll 1/3        |
@@ -93,9 +93,11 @@ and `hold-trigger-key-positions` restricts them to opposite-hand keys.
 | Cross-hand false modifiers  | Raise `require-prior-idle-ms`  |
 | Missed modifiers when fast  | Lower `require-prior-idle-ms`  |
 
-**No bootloader key on the mouse layer.** The mouse layer is held with the
-space thumb, where a bootloader binding is too easy to hit mid-sentence. The
-only bootloader key is on the Fn layer.
+**No bootloader key.** Both inherited ones sat on the same hand as the thumb
+that opens their layer, where they were too easy to hit mid-sentence. Enter
+the bootloader with the double-tap reset button instead. The destructive keys
+that remain (`BT_CLR`, `sys_reset`) are on the opposite hand from their layer
+key, so a stray hit needs both hands.
 
 ## Building
 

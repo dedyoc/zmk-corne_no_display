@@ -210,8 +210,6 @@ parse_config:
     "&sys_reset":
       type: bootloader
       tap: $$mdi:backup-restore$$
-    "&bootloader":
-      tap: $$mdi:progress-download$$
 
   # ZMK
   zmk_keycode_map:

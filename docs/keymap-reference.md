@@ -150,10 +150,13 @@ commit `6b33dbb`).
   deep sleep on idle, which is enabled and working.
 - Position 23 (right pinky, home row outer) is also `&trans` and free. On a
   stock Corne this is `'`, which here moved inward to pos 22 as `&hmr RGUI '`.
-- `&bootloader` on layer 3 pos 30 only. Layer 4's copy at pos 29 was removed in
-  `634dcfe`: layer 4 is held with the space thumb, so space+`B` fired it
-  mid-typing. Layer 3's is cross-hand from its layer key and is kept.
-- `&sys_reset` on layer 3 pos 16.
+- **No `&bootloader` anywhere.** Layer 4's copy (pos 29, `B`) was removed in
+  `634dcfe` and layer 3's (pos 30, `N`) later: both sat on the same hand as
+  their layer key (space / backspace thumb), so one hand could fire them
+  mid-typing. Earlier notes placing layer 3's on `Z` and calling it cross-hand
+  were wrong. Flash with the double-tap reset button instead.
+- `&sys_reset` on layer 3 pos 16 (`F`, left hand), cross-hand from the
+  backspace layer key.
 - Bluetooth profile select on layer 1 row 2. Layer 1 pos 13 is `&trans`: it held
   `&bt BT_CLR_ALL`, same-hand with the TAB layer key and next to `BT_SEL 0`, so
   one slip wiped every pairing. `&bt BT_CLR` (current profile only) remains on
