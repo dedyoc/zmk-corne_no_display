@@ -66,7 +66,6 @@
     behaviors {
         td0: td0 {
             compatible = "zmk,behavior-tap-dance";
-            label = "TD0";
             #binding-cells = <0>;
             bindings = <&caps_word>, <&kp CAPS>;
         };
@@ -81,7 +80,6 @@
         //         missed mods when typing fast -> lower require-prior-idle-ms.
         hml: hml {
             compatible = "zmk,behavior-hold-tap";
-            label = "HML";
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
@@ -95,7 +93,6 @@
 
         hmr: hmr {
             compatible = "zmk,behavior-hold-tap";
-            label = "HMR";
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
@@ -109,7 +106,6 @@
 
         osm: osm {
             compatible = "zmk,behavior-sticky-key";
-            label = "OSM";
             bindings = <&kp>;
             #binding-cells = <1>;
             release-after-ms = <1000>;
@@ -132,8 +128,6 @@
                 <&kp INS>,
                 <&macro_release>,
                 <&kp LCTRL>;
-
-            label = "COPY";
         };
 
         paste: paste {
@@ -146,8 +140,6 @@
                 <&kp INS>,
                 <&macro_release>,
                 <&kp LSHFT>;
-
-            label = "PASTE";
         };
 
         cut: cut {
@@ -160,8 +152,6 @@
                 <&kp DEL>,
                 <&macro_release>,
                 <&kp LSHFT>;
-
-            label = "CUT";
         };
     };
 
