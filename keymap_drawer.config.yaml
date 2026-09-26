@@ -198,8 +198,30 @@ parse_config:
       tap: $$mdi:mouse-right-click-outline$$
     "&mkp MCLK":
       tap: $$mdi:mouse-scroll-wheel$$
+    # This keymap binds the mouse buttons as MB1/MB2/MB3, which are the same
+    # bits as LCLK/RCLK/MCLK under different names. The entries above are keyed
+    # to the literal binding text, so they never matched and the three thumb
+    # keys on the mouse layer rendered as raw "&mkp" text.
+    "&mkp MB1":
+      tap: $$mdi:mouse-left-click-outline$$
+    "&mkp MB2":
+      tap: $$mdi:mouse-right-click-outline$$
+    "&mkp MB3":
+      tap: $$mdi:mouse-scroll-wheel$$
+    # Clipboard macros on the left edge column of layer 0. Terminal-safe
+    # Shift+Ins / Ctrl+Ins / Shift+Del -- see CLAUDE.md.
+    "&paste":
+      tap: $$mdi:content-paste$$
+    "&copy":
+      tap: $$mdi:content-copy$$
+    "&cut":
+      tap: $$mdi:content-cut$$
     # Modifiers
     "&caps_word": $$mdi:alpha-w-box$$
+    # Tap-dance: tap = caps-word, double-tap = caps-lock.
+    "&td0":
+      tap: $$mdi:alpha-w-box$$
+      hold: $$mdi:apple-keyboard-caps$$
     "&kt RSHIFT":
       tap: $$mdi:apple-keyboard-shift$$
       hold: $$mdi:toggle-switch$$
@@ -400,6 +422,7 @@ parse_config:
     LSHFT: $$mdi:apple-keyboard-shift$$
     LCMD: $$mdi:apple-keyboard-command$$
     LG: $$mdi:apple-keyboard-command$$
+    LGUI: $$mdi:apple-keyboard-command$$
     LEFT_GUI: $$mdi:apple-keyboard-command$$
     LEFT_COMMAND: $$mdi:apple-keyboard-command$$
     RCTRL: $$mdi:apple-keyboard-control$$
@@ -411,6 +434,7 @@ parse_config:
     RSHFT: $$mdi:apple-keyboard-shift$$
     RCMD: $$mdi:apple-keyboard-command$$
     RG: $$mdi:apple-keyboard-command$$
+    RGUI: $$mdi:apple-keyboard-command$$
     PSCRN: $$mdi:printer-outline$$
     RIGHT_COMMAND: $$mdi:apple-keyboard-command$$
     PAGE_UP:
