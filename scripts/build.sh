@@ -32,8 +32,8 @@ docker_run() {
 init_ws() {
   echo "==> Initializing west workspace at $WS (several minutes)"
   # The workspace must live OUTSIDE the repo: `west init -l` roots the
-  # workspace at the manifest repo's parent, and this repo already has a
-  # zephyr/ directory that west would otherwise collide with.
+  # workspace at the manifest dir's parent -- the repo root -- so zmk/,
+  # zephyr/ and modules/ would otherwise be cloned into this repo.
   mkdir -p "$WS/config"
   docker_run /workspace/config 'west init -l . && cd /workspace && west update'
 }
