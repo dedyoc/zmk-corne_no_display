@@ -154,7 +154,10 @@ commit `6b33dbb`).
   `634dcfe`: layer 4 is held with the space thumb, so space+`B` fired it
   mid-typing. Layer 3's is cross-hand from its layer key and is kept.
 - `&sys_reset` on layer 3 pos 16.
-- Bluetooth profile select on layer 1 row 2; `&bt BT_CLR_ALL` at pos 13.
+- Bluetooth profile select on layer 1 row 2. Layer 1 pos 13 is `&trans`: it held
+  `&bt BT_CLR_ALL`, same-hand with the TAB layer key and next to `BT_SEL 0`, so
+  one slip wiped every pairing. `&bt BT_CLR` (current profile only) remains on
+  layer 3 pos 13, cross-hand from its layer key.
 - RGB controls on layer 1 row 3.
 - Mouse move/scroll and `&mkp` buttons on layer 4; needs `CONFIG_ZMK_POINTING=y`.
 - Cursor speed keys on layer 4 pos 3/4 (`&mo 6` / `&mo 5`) — see "Cursor speed".

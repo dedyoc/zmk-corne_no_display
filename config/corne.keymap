@@ -195,15 +195,18 @@
 
             // -----------------------------------------------------------------------------------------------------
             // |     |   1    |   2   |   3   |   4   |   5   |   |   6  |   7  |  8  |  9  |  0   | BSPC |
-            // |     | BT_CLR | BT 0  | BT 1  | BT 2  | BT 3  |   | LEFT | DOWN |  UP | RGT | HOME | PGUP |
+            // |     |        | BT 0  | BT 1  | BT 2  | BT 3  |   | LEFT | DOWN |  UP | RGT | HOME | PGUP |
             // |     | RGB_TOG|       |       |       |RGB_EFF|   | SPD  | SPI  | BRI | BRD | END  | PGDN |
             //                       |     |     |     |   |     |     |     |
             //
-            // BT_CLR here is BT_CLR_ALL (wipes every profile), not BT_CLR.
+            // Position 13 is deliberately empty. It used to hold BT_CLR_ALL, which
+            // sat under the same hand as the TAB layer key and one column from
+            // BT_SEL 0 -- a single slip wiped every pairing. To clear the current
+            // profile, use BT_CLR on the Fn layer (cross-hand).
 
             bindings = <
 &trans  &kp N1           &kp N2        &kp N3        &kp N4        &kp N5             &kp N6           &kp N7           &kp N8           &kp N9           &kp N0    &kp BSPC
-&trans  &bt BT_CLR_ALL   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3       &kp LEFT         &kp DOWN         &kp UP           &kp RIGHT        &kp HOME  &kp PG_UP
+&trans  &trans           &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3       &kp LEFT         &kp DOWN         &kp UP           &kp RIGHT        &kp HOME  &kp PG_UP
 &trans  &rgb_ug RGB_TOG  &trans        &trans        &trans        &rgb_ug RGB_EFF    &rgb_ug RGB_SPD  &rgb_ug RGB_SPI  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &kp END   &kp PG_DN
                                        &trans        &trans        &trans             &trans           &trans           &trans
             >;
