@@ -31,7 +31,6 @@ reflects the current `config/corne.keymap`.
   where `Ctrl+C` is SIGINT.
 - **Mouse emulation** with cursor movement, scrolling, three buttons, and
   hold-to-modify speed keys (4x sprint, 1/4 precision).
-- **Smooth scrolling** via HID resolution multipliers, where the host supports it.
 - **Caps Word** on tap, Caps Lock on double tap.
 - **RGB underglow**, off at boot, brightness capped at 80%, turns off when idle.
 - **Battery reporting** for both halves through the central.
